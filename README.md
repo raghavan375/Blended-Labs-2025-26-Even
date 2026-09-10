@@ -1,93 +1,117 @@
-# EX NO -- 1 : Cloud-account-set-up-and-services
-## REG NO : 212224050055
-## NAME : Thiravia Raja Raghavan G
-# Aim:
-To create an cloud account in AWS and to explore all of its services.
+# Lab 5 – Build a Database Server (AWS)
 
-# Procedure
-# Step 1: Go to the AWS Website
-• Visit https://aws.amazon.com
+## Author
 
-• Click “Create an AWS Account” in the top right corner.
+* **Name**: Thiravia Raja Raghavan G
+* **Register Number**: 212224050055
+* **Date of Submission**: 10-09-2026
 
-# Step 2: Enter Account Information
-• Email address – Use a valid email you have access to.
+---
 
-• Password – Create a strong password.
+## Objective
 
-• AWS account name – This is the name you want to associate with your AWS account (e.g., your name or company name).
+The objective of this experiment is to understand how to deploy and configure a database server in AWS. This lab focuses on launching an EC2 instance, installing a database management system (DBMS), configuring basic database settings, creating a sample database, and validating connectivity to the database server.
 
-# Step 3: Choose Account Type
-• Personal or Professional – Select based on how you plan to use AWS.
+---
 
-• Fill in your contact information (name, address, phone number).
+## Prerequisites
 
-# Step 4: Enter Payment Information
-• Provide credit/debit card details.
+* Basic understanding of cloud computing concepts
+* AWS account or AWS Academy Lab access
+* An existing VPC and EC2 knowledge (from previous labs)
+* Basic knowledge of Linux commands and SQL
 
-Note: You won’t be charged immediately. AWS offers a Free Tier, but entering card details is mandatory.
+---
 
-# Step 5: Verify Your Identity
-• Enter your phone number.
+## Tools Used
 
-• AWS will send a verification code via call or text.
+* AWS Management Console
+* Amazon EC2
+* Security Groups
+* SSH Client (Terminal / PuTTY)
+* MySQL / MariaDB / PostgreSQL (any one)
 
-• Enter the code to confirm your identity.
+---
 
-# Step 6: Choose a Support Plan
-Choose one of the following:
-• Basic Support (Free)
+## Tasks Performed
 
-• Developer Support
+### Task 1: Launch EC2 Instance for Database Server
 
-• Business Support
+Launch a new EC2 instance using Amazon Linux 2 AMI. Select an appropriate instance type and configure key pair and security group.
 
-• Enterprise Support
+---
 
-For most beginners, select Basic Support.
+### Task 2: Configure Security Group for Database Access
 
-# Step 7: Complete the Sign-Up
-• After reviewing all the details, click "Sign Up".
+Modify the security group to allow:
 
-• You’ll receive a confirmation email once your account is activated (usually within a few minutes).
+* SSH (Port 22) for remote access
+* Database port (e.g., MySQL – 3306 or PostgreSQL – 5432)
 
-# Step 8: Sign In to AWS Console
-• Go to https://console.aws.amazon.com
+---
 
-• Log in using your email and password to start using AWS services.
+### Task 3: Connect to EC2 Instance
+
+Connect to the EC2 instance using SSH from your local machine.
+
+---
+
+### Task 4: Install Database Server
+
+Install a database server software such as MySQL, MariaDB, or PostgreSQL on the EC2 instance using package manager commands.
+
+---
+
+### Task 5: Start and Configure Database Service
+
+Start the database service and configure basic settings such as root password and user privileges.
+
+---
+
+### Task 6: Create a Sample Database
+
+Create a sample database and a table inside it. Insert a few records into the table.
+
+---
+
+### Task 7: Test Database Connectivity
+
+Test the database server by connecting to it locally or remotely and performing basic SQL queries.
+
+---
+
+## Workflow (Student Explanation)
+
+1. First, a security group named DB Security Group was created to allow the web server to connect to the database using port 3306 (MySQL).
+2. A DB Subnet Group was created with subnets from two Availability Zones to allow the database to run in a Multi-AZ environment for high availability.
+3. A MySQL RDS instance named lab-db was created with the database name lab, username main, and password lab-password.
+4. The database was associated with the DB Security Group and the Lab VPC so that the web server can securely connect to the database.
+5. The web application running on the EC2 server was opened using its IP address, and the RDS endpoint, database name, username, and password were entered to interact with the database.
+---
+
+## Output Screenshots (Attach 3)
+
+### Screenshot 1: EC2 Instance for Database Server
+
+<img width="1271" height="581" alt="image" src="https://github.com/user-attachments/assets/25587a1e-cf9a-4bb6-82bb-19e7852d1c86" />
+
+---
+
+### Screenshot 2: Database Service Running
 
 
-# Create a user with administrative access
-After you sign up for an AWS account, secure your AWS account root user, enable AWS IAM Identity Center, and create an administrative user so that you don't use the root user for everyday tasks.
+<img width="1258" height="576" alt="image" src="https://github.com/user-attachments/assets/37530d42-f186-457d-af27-9d9a6e250d06" />
 
 
-# Secure your AWS account root user
-Sign in to the AWS Management Console (https://console.aws.amazon.com) as the account owner by choosing Root user and entering your AWS account email address. On the next page, enter your password.
-Turn on multi-factor authentication (MFA) for your root user.
+---
 
-# Create user with administrative access
-Enable IAM Identity Center.
-In IAM Identity Center, grant administrative access to a user.
+### Screenshot 3: Sample Database and Table
 
-# Sign in as the user with administrative access
-To sign in with your IAM Identity Center user, use the sign-in URL that was sent to your email address when you created the IAM Identity Center user.
+<img width="1283" height="727" alt="image" src="https://github.com/user-attachments/assets/86fbd58c-f4c8-408f-9654-14dac60374ef" />
 
 
-# Services Overview:
-• Explore all the available services in AWS platform.
-# Output:
+---
 
-<img width="1917" height="1018" alt="Screenshot 2026-07-27 142255" src="https://github.com/user-attachments/assets/951c91ce-e15a-4b98-ac65-27ab6aaa7783" />
+## Result
 
-<img width="1917" height="1020" alt="Screenshot 2026-07-27 143202" src="https://github.com/user-attachments/assets/de27bf3b-3f93-4585-af6d-a526119f62ff" />
-
-<img width="1917" height="1020" alt="Screenshot 2026-07-27 144751" src="https://github.com/user-attachments/assets/77bad7fa-4365-47cc-81e4-239bcf97ab70" />
-
-
-
-
-# Result:
-Thus an account was created in AWS platform and all the services were explored.
-
-
-
+This experiment demonstrated how to build a database server in AWS using an EC2 instance. By installing and configuring a DBMS, creating a sample database, and testing connectivity, the fundamentals of hosting and managing a cloud-based database server were underst
