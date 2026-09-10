@@ -1,29 +1,25 @@
-# Lab 6 – Scale and Load Balance Your Architecture
+# Lab 3 – Introduction to Amazon Elastic Compute Cloud (EC2)
 
-## Title
+## Author
 
-Scale and Load Balance Your Architecture
-
-Name : Thiravia Raja Raghavan G
-
-Reg no : 212224050055
-
-Date : 10-09-2026
+* **Name**: Thiravia Raja Raghavan G
+* **Register Number**: 212224050055
+* **Date of Submission**: 10-09-2026
 
 ---
 
 ## Objective
 
-The objective of this lab is to understand how to design a scalable and highly available architecture on AWS using Auto Scaling and Elastic Load Balancing. This experiment focuses on distributing incoming traffic across multiple EC2 instances, automatically scaling resources based on demand, and validating fault tolerance.
+The objective of this experiment is to understand the fundamentals of Amazon Elastic Compute Cloud (EC2). This lab focuses on launching and managing a virtual server, understanding instance types and AMIs, connecting to an EC2 instance, monitoring its status, and performing basic instance operations such as start, stop, and terminate.
 
 ---
 
 ## Prerequisites
 
-* Basic knowledge of Amazon EC2 and VPC
-* Completion of previous labs (IAM, EC2, EBS, Database Server)
-* AWS Academy Lab access
-* Stable internet connection
+* Basic understanding of cloud computing concepts
+* AWS account or AWS Academy Lab access
+* Web browser with internet connectivity
+* Basic knowledge of Linux commands (optional)
 
 ---
 
@@ -31,73 +27,97 @@ The objective of this lab is to understand how to design a scalable and highly a
 
 * AWS Management Console
 * Amazon EC2
-* Elastic Load Balancer (ELB / ALB)
-* Auto Scaling Groups (ASG)
-* Amazon CloudWatch
+* Key Pair
+* Security Group
+* SSH Client (PuTTY / Terminal)
 
 ---
 
 ## Tasks Performed
 
-### Task 1: Review Existing Architecture
+### Task 1: Explore Amazon EC2 Dashboard
 
-Students review the existing EC2-based application architecture created in previous experiments.
-
-### Task 2: Create a Launch Template
-
-Students create a launch template that defines the EC2 instance configuration including AMI, instance type, security group, and user data.
-
-### Task 3: Create an Auto Scaling Group
-
-Students create an Auto Scaling Group using the launch template and configure minimum, maximum, and desired instance capacity.
-
-### Task 4: Configure an Application Load Balancer
-
-Students create an Application Load Balancer and configure target groups for routing traffic to EC2 instances.
-
-### Task 5: Register Auto Scaling Group with Load Balancer
-
-Students attach the Auto Scaling Group to the target group of the load balancer.
-
-### Task 6: Configure Scaling Policies
-
-Students configure scaling policies based on CPU utilization using Amazon CloudWatch alarms.
-
-### Task 7: Test Load Balancing and Scaling
-
-Students test the setup by generating traffic and observing automatic scaling and load distribution.
+Explore the EC2 service dashboard in the AWS Management Console. Observe the different sections such as Instances, AMIs, Instance Types, Key Pairs, Security Groups, and Elastic IPs.
 
 ---
 
-## Workflow (To be filled by Student)
+### Task 2: Launch an EC2 Instance
 
-1.Launch multiple servers.
+Launch a new EC2 instance using Amazon Linux 2 AMI. Select an appropriate instance type (t2.micro) under the free tier. Configure basic settings such as instance name, key pair, and security group.
 
-2.Deploy the application on each server.
-
-3.Create a load balancer.
-
-4.Add servers to the load balancer.
-
-5.Configure auto-scaling.
-
-6.Test load distribution.
 ---
 
-## Output Screenshots 
+### Task 3: Configure Security Group
 
-<img width="1919" height="971" alt="Screenshot 2026-03-12 211103" src="https://github.com/user-attachments/assets/8fa7df4a-3ee1-4074-a024-c10c1e0bce50" />
+Configure a security group to allow inbound access:
 
-<img width="1919" height="903" alt="Screenshot 2026-03-12 211725" src="https://github.com/user-attachments/assets/586f6a3a-b2b7-4e9e-acfc-1022b58f12c8" />
+* SSH (Port 22) from your IP address
+* HTTP (Port 80) from anywhere (0.0.0.0/0)
 
-<img width="1919" height="910" alt="Screenshot 2026-03-12 212615" src="https://github.com/user-attachments/assets/601f9ba0-ecea-476f-a486-3ec2fa5b918d" />
+This security group acts as a firewall for the instance.
 
-<img width="1919" height="905" alt="Screenshot 2026-03-12 214730" src="https://github.com/user-attachments/assets/e97c5e16-3960-4a8b-9cc4-8715d635a361" />
+---
 
-<img width="1912" height="900" alt="Screenshot 2026-03-12 215935" src="https://github.com/user-attachments/assets/0e1d0985-ca8e-435b-a5ad-dc52b372f2d0" />
+### Task 4: Connect to EC2 Instance
 
-<img width="1919" height="920" alt="Screenshot 2026-03-12 220136" src="https://github.com/user-attachments/assets/7f4f77ee-4ab2-4e57-83d5-f330444190ef" />
+Connect to the running EC2 instance using SSH. Use the downloaded key pair and connect via terminal or PuTTY.
 
-## Result
+For Amazon Linux:
 
-This experiment demonstrated how to build a scalable and fault-tolerant cloud architecture using Auto Scaling Groups and Elastic Load Balancing. The system automatically adjusted resources based on workload and ensured continuous service availability by distributing traffic across multiple instances.
+```
+ssh -i "keyname.pem" ec2-user@<Public-IP>
+```
+
+---
+
+### Task 5: Perform Basic Instance Operations
+
+Perform the following operations from the EC2 console:
+
+* Stop the instance
+* Start the instance
+* Reboot the instance
+
+Observe the state changes of the instance.
+
+---
+
+### Task 6: Monitor EC2 Instance
+
+Monitor the EC2 instance using the Monitoring tab. Observe metrics such as CPU utilization, network in/out, and instance status checks.
+
+---
+
+### Task 7: Terminate EC2 Instance
+
+Terminate the EC2 instance after completing the experiment to avoid unnecessary AWS charges.
+
+---
+
+## Workflow (Student Explanation)
+
+(Write the steps you followed in your own words)
+
+1. Logged in to the AWS Management Console and navigated to the Amazon EC2 Dashboard to explore available services and resources.
+2. Launched a new EC2 instance using the Amazon Linux 2 AMI and selected the t2.micro instance type. Created a key pair and configured the necessary instance settings.
+3. Configured a security group to allow SSH access on port 22 from my IP address and HTTP access on port 80 from anywhere.
+4. Connected to the running EC2 instance using SSH through the terminal with the downloaded key pair. Verified the connection and executed basic Linux commands.
+5. Monitored the instance performance using the Monitoring tab, observed CPU and network metrics, performed start, stop, and reboot operations, and finally terminated the instance after completing the experiment.
+
+## Output Screenshots (Attach 3)
+
+### Screenshot 1: EC2 Dashboard / Instance List
+<img width="1913" height="961" alt="image" src="https://github.com/user-attachments/assets/8b41ba37-b0db-45e4-a69e-2f44f628f2fa" />
+
+### Screenshot 2: SSH Connection to Instance
+
+<img width="1915" height="952" alt="image" src="https://github.com/user-attachments/assets/a5e061cd-95ee-4139-a3e6-b92954789505" />
+
+
+### Screenshot 3: Instance Monitoring / Status
+<img width="1910" height="976" alt="image" src="https://github.com/user-attachments/assets/269b9388-1fa7-4cd2-a16f-1ec813c5fe45" />
+
+
+## Result 
+
+This experiment provided hands-on experience with Amazon EC2 by demonstrating how to launch, connect, manage, and monitor a virtual server in AWS. It helped in understanding the concept of Infrastructure as a Service (IaaS) and how compute resources can be provisioned and controlled on demand in the cloud.
